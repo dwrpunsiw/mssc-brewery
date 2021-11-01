@@ -29,7 +29,7 @@ public class BeerController {
     public ResponseEntity<?> handlePost(@RequestBody BeerDto beerDto) {
         BeerDto saveDto = beerService.saveNewBeer(beerDto);
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Location", "/api/v1/beer" + saveDto.getId().toString());
+        headers.add("Location", "/api/v1/beer/" + saveDto.getId().toString());
         return new ResponseEntity(headers, HttpStatus.OK);
     }
 

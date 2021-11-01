@@ -2,7 +2,6 @@ package guru.springframework.msscbrewery.web.controller;
 
 import guru.springframework.msscbrewery.services.CustomerService;
 import guru.springframework.msscbrewery.web.model.CustomerDto;
-import org.apache.coyote.Response;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,7 +29,7 @@ public class CustomerController {
         CustomerDto saveDto = customerService.saveNewCustomer(customerDto);
 
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Location", saveDto.getId().toString());
+        headers.add("Location", "/api/v1/customer/" + saveDto.getId().toString());
 
         return new ResponseEntity(headers, HttpStatus.CREATED);
 
